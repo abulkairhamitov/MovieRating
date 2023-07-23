@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <style>
+
+    .align {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .icon {
+      position: center;
+      border-radius: 0.25em;
+      border-style: solid;
+      border-width: 2px;
+      font-size: 1.2rem;
+      margin-top: 1em;
+    }
+
+    body {
+      color: #888;
+      font-family: sans-serif;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: #111;
+    }
+
+    form {
+      text-align: center;
+    }
+
+    .form__input {
+      border-radius: 0.25em;
+      border-style: solid;
+      border-width: 2px;
+      font-size: 1.5rem;
+      padding: 0.5em 4em 0.5em 2em;
+    }
+
+  </style>
+  <body class="align">
+
+    <h3>Придумайте отзыв к фильму на английском</h3>
+
+    <form action="/" method="post">
+  
+      <div class="form__field">
+        <input type="text" name="user_input" placeholder="Введите строку" class="form__input" required>
+      </div>
+      <input type="submit" value="Отправить" class="icon">
+    </form>
+    {% if prediction >= 7 %}
+    <h2 style="color:blue;">Хороший фильмы с рейтингом {{prediction}} </h2>
+    {% elif prediction <= 4 %}
+    <h2 style="color:red;">Плохой фильм с рейтингом {{prediction}} </h2>
+    {% endif %}
+  
+  </body>
+</html>
